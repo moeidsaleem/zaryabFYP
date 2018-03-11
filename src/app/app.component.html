@@ -1,0 +1,80 @@
+<!-- <h1>Hello Atrix</h1>
+<button (click)="openRoom()">Open sasamee! </button>
+<button (click)="joinRoom()">Join sasamee! </button>
+
+<div class="row">
+    <div class="col-md-6">
+    <h2>LOCAL</h2>
+            <div #local></div>
+    </div>
+    <div class="col-md-6">
+    <h2>REMOTE</h2>
+            <div #remote></div>
+    </div>
+</div> -->
+
+
+
+
+
+<!-- HEADER -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
+        <a class="navbar-brand" href="#">RTVC 2.0</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="/features">Features</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" routerLink="/pricing">Pricing</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/demo">Demo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/about">Contact us</a>
+              </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+<router-outlet></router-outlet>
+
+
+
+
+
+
+
+
+<footer id="mainFooter" class="hidden-sm-down" style="position:relative;bottom:0;width:100%;font-size:12px;">
+  <div class="footer-left">
+  <a class="vertical-logo-container" href="https://media.netflix.com/en/">
+  <img class="vertical-logo img-responsive" src="./assets/logo.png" style="width:70px;height:200px;">
+  </a>
+  </div>
+  <div class="footer-right">
+  <ul class="social-nav">
+  <li>Follow Us</li>
+  <li class="icon-bubble"><a href="https://github.com/moeidsaleem" target="_blank"><i class="fa fa-github"></i><span class="hidden">Netflix on Instagram</span></a></li>
+  </ul>
+  <ul class="legal-nav">
+  <li><a  routerLink="/features">Features</a></li>
+  <li><a href="https://partner.netflix.com/en/node/52" target="_blank">Demo</a></li>
+  <li><a href="https://atrixdigital.com" target="_blank">ADS</a></li>
+  <li><a  routerLink="/about">Contact Us</a></li>
+  <li>© 2018 Atrix Digital Solutions RTVC</li>
+  </ul>
+  </div>
+  </footer>

@@ -1,0 +1,59 @@
+<!-- <div class="jumbotron jumbotron-fluid" style="background:url('./assets/bg.jpg')">
+  <div class="container">
+    <h1 class="display-3">RTVC Live demo!</h1>
+    <p class="lead">Let us integrate RTVC into your project! </p>
+    <hr class="my-2" >
+    <p style="background-color:rgba(255, 255, 255, 0.329)">Are you interested in integrating audio, video calling experience in your current existing app or looking to 
+      build a complete new interactive experience application then let us build it for you ! 
+    </p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" routerLink="/about" role="button">Hire us</a>
+    </p>
+  </div>
+</div> -->
+
+<div class="container text-center">
+    <h1 routerLink="demo/{{roomId}}">Call Operator</h1>
+    
+
+    <p>This is a simple two way calling where once the call is ended, audio blob will be generated which will then 
+      be converted to .mp3 then sent for speech to text and trascription will be generated which will then be handled by 
+      natural learning algorithm and sentiment analysis for generating complete result.
+    </p>
+  
+    
+      <div class="container" *ngIf="!started">
+      <h5 >OPERATOR ID</h5>
+    <div class="form-group">
+        <label for=""></label>
+        <input type="text" class="form-control" [(ngModel)]="roomId" aria-describedby="helpId" placeholder="Edit Room ID">
+        <small id="helpId" class="form-text text-muted">Enter a unique ID </small>
+      </div>
+      <code>{{roomId}}</code>
+    </div>
+
+
+<div class=" text-center" style="text-align:center" *ngIf="!started">
+    <button type="button" class="btn btn-success" btn-lg btn-block  (click)="openRoom()">START AUDIO BROADCAST</button>
+   </div> 
+   <span class="text-success" *ngIf="started">Session has been started. Please share this link with others to join your broadcast & see you live in action!<br>
+    <a href="{{url}}/{{roomId}}" target="_blank">{{url}}/{{roomId}}</a>
+      <!-- <button type="button" class="btn btn-info" btn-lg btn-block  (click)="goJoin()" >JOIN</button> -->
+
+   </span>
+   <br>
+
+   <div class="row">
+      <div class="col-md-12">
+      <h2>LOCAL</h2>
+              <div #local id="local"></div>
+      </div>
+      <!-- <div class="col-md-6">
+      <h2>REMOTE</h2>
+              <div #remote id="remote"></div>
+      </div> -->
+  </div>
+
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br>
