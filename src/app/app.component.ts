@@ -1,4 +1,4 @@
-import { Component, AfterViewInit , ElementRef, ViewChild } from '@angular/core';
+import { Component, AfterViewInit , ElementRef, ViewChild, OnInit } from '@angular/core';
 import { WebrtcService } from './webrtc.service';
 
 import {AccordionModule} from 'primeng/primeng';     //accordion and accordion tab
@@ -10,7 +10,7 @@ import {MenuItem} from 'primeng/primeng';            //api
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit  {
+export class AppComponent implements AfterViewInit,OnInit  {
 
   @ViewChild('local') local;
   @ViewChild('remote') remote;
@@ -23,8 +23,20 @@ export class AppComponent implements AfterViewInit  {
   title = 'app';
   roomId='123';
  
+ 
   socket:any = null;
   element;
+
+
+  ngOnInit() {
+    this.rtc.loading=true;
+
+    setTimeout(()=>{
+      this.rtc.loading=false;
+
+    },400);
+   
+  }
   
   
   ngAfterViewInit(){

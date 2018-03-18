@@ -13,7 +13,7 @@
 </div> -->
 
 <div class="container text-center">
-    <h1 routerLink="demo/{{roomId}}">Call Operator</h1>
+    <h1>Call Operator</h1>
     
 
     <p>This is a simple two way calling where once the call is ended, audio blob will be generated which will then 
@@ -21,7 +21,20 @@
       natural learning algorithm and sentiment analysis for generating complete result.
     </p>
   
-    
+    <div class="row">
+        <div class="col-md-4">
+        <img src="./assets/operator1.jpg" style="width:120px;border-radius:120px;border:solid;border-color:black" (click)="roomId = 'operator1'">
+        <h6>Operator 1 </h6>
+       </div>
+       <div class="col-md-4">
+           <img src="./assets/operator2.png" style="width:120px;border-radius:120px;border:solid;border-color:black" (click)="roomId = 'operator2'">
+           <h6>Operator 2</h6>
+          </div>
+          <div class="col-md-4">
+             <img src="./assets/operator3.jpg"  style="width:120px;border-radius:120px;border:solid;border-color:black" (click)="roomId = 'operator3'">
+             <h6>Operator 3 </h6>
+            </div>
+      </div>
       <div class="container" *ngIf="!started">
       <h5 >OPERATOR ID</h5>
     <div class="form-group">
@@ -31,6 +44,7 @@
       </div>
       <code>{{roomId}}</code>
     </div>
+
 
 
 <div class=" text-center" style="text-align:center" *ngIf="!started">
@@ -43,17 +57,27 @@
    </span>
    <br>
 
-   <div class="row">
+
+   <div class="row text-center" *ngIf="started">
       <div class="col-md-12">
       <h2>LOCAL</h2>
               <div #local id="local"></div>
       </div>
+     
       <!-- <div class="col-md-6">
       <h2>REMOTE</h2>
               <div #remote id="remote"></div>
       </div> -->
   </div>
+  <div class="row text-center" *ngIf="started">
+    <div class="col-md-12">
+      <button (click)="stopRoom()" class="btn btn-danger text-center">STOP</button>
+    </div>
+
+    </div>
 
 </div>
+
+
 
 <br><br><br><br><br><br><br><br><br><br><br>

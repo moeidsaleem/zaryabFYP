@@ -9,19 +9,26 @@ import { Router } from '@angular/router';
 })
 export class DemoComponent implements OnInit {
   url = 'https://localhost:4200/demo';
-
+x;
+y;
   constructor(private router:Router,private rtc:WebrtcService,private elementRef:ElementRef) {
    
     this.rtc.connection.onstream = function(event){
-      let x = document.getElementById('local');
-      let y = document.getElementById('remote');
+      this.x = document.getElementById('local');
+      this.y = document.getElementById('remote');
       if(event.type === 'remote'){
         console.error('remote event');
-        y.appendChild(event.mediaElement);
+        this.y.appendChild(event.mediaElement);
+        console.log('remote')
+
 
       }else if( event.type === 'local'){
         console.log('local event');
-        x.appendChild(event.mediaElement);
+        this.x.appendChild(event.mediaElement);
+        // this.rtc.connection[event.streamid].startRecording({
+        //   audio:true,
+        //   video:false
+        // });
       }
 
     }
@@ -37,7 +44,7 @@ export class DemoComponent implements OnInit {
   rand5 = function() {
     return(Math.floor(Math.random() * 5*2) + 2003 *32)
   };
-  roomId ='atrix';
+  roomId;
 
   goJoin(){
     // this.router.(['/demo', this.roomId])
@@ -59,12 +66,37 @@ export class DemoComponent implements OnInit {
 
     // }
   }
+  valuex=2;
   openRoom(){
     // console.log('final roomId , starting room with  ' +this.roomId)
+
+    setTimeout(()=>{
+
+    })
     this.started=true;
-       this.rtc.open(this.roomId);
+    this.rtc.open(this.roomId);
      
        
+}
+
+
+stopRoom(){
+  this.rtc.loading =true;
+//   this.rtc.connection.streams[this.roomId].stopRecording(function (blob) {
+//     var mediaElement = document.createElement('audio'); 
+//     mediaElement.src = URL.createObjectURL(blob.audio); 
+//   //  document.documentElement.appendChild(this.local); 
+// });
+
+setTimeout(()=>{
+  this.rtc.loading=false;
+  this.started =false;
+  this.router.navigate(['/result']);
+},1000);
+
+
+
+
 }
 
 

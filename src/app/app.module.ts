@@ -4,6 +4,8 @@ import { NgModule, OnInit } from '@angular/core';
 import {RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { LoadingModule } from 'ngx-loading';
+
 //primeng
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { InputTextModule, ButtonModule, DataTableModule, DialogModule, GalleriaModule, ChartModule } from 'primeng/primeng';
@@ -18,6 +20,7 @@ import { PricingComponent } from './pricing/pricing.component';
 import { DemoComponent } from './demo/demo.component';
 import { AboutComponent } from './about/about.component';
 import { JoinComponent } from './join/join.component';
+import { ResultComponent } from './result/result.component';
 
 //Atrix Meeting
 // This will have landing page, in dashboard=> profile, host, join,
@@ -41,7 +44,8 @@ import { JoinComponent } from './join/join.component';
     PricingComponent,
     DemoComponent,
     AboutComponent,
-    JoinComponent
+    JoinComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +58,7 @@ import { JoinComponent } from './join/join.component';
     ButtonModule,
     GalleriaModule,
     ChartModule,
+    LoadingModule,
     RouterModule.forRoot([
       { 
          path:'',
@@ -63,7 +68,7 @@ import { JoinComponent } from './join/join.component';
       { path: 'home',  component : LandingComponent},
       { path:'features', component:LearnmoreComponent},
       { path:'demo', component:DemoComponent},
-      { path:'pricing', component:DemoComponent},
+      { path:'result', component:ResultComponent},
       { path:'demo', component:DemoComponent},
       { path:'about', component:AboutComponent},
       { path:'demo/:id', component:JoinComponent},

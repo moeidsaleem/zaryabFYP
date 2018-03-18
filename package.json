@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "prod":"lite-server -c bs-config.js",
+    "prod": "lite-server -c bs-config.js",
     "atrix": "forever start -c ng serve --host ec2-13-229-128-0.ap-southeast-1.compute.amazonaws.com --ssl --environment=prod"
   },
   "private": true,
@@ -31,6 +31,7 @@
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "ng-socket-io": "^0.1.11",
+    "ngx-loading": "^1.0.14",
     "primeng": "^4.2.1",
     "rxjs": "^5.4.2",
     "socket.io-client": "^2.0.3",

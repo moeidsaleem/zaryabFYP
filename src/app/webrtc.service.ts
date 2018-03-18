@@ -4,6 +4,7 @@ declare var RTCMultiConnection: any;
 @Injectable()
 export class WebrtcService {
   connection;
+  loading =false
   constructor() { 
     //webRTC 
     this.connection = new RTCMultiConnection();
@@ -73,6 +74,8 @@ export class WebrtcService {
       OfferToReceiveVideo: false
   };
     this.connection.open(id);
+  
+  
 
   }
 
