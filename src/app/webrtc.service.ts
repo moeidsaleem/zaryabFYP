@@ -46,7 +46,17 @@ export class WebrtcService {
       //data: true
   };
   this.connection.mediaConstraints = {
-      audio: true,
+    audio: {
+      mandatory: {
+          echoCancellation: false,
+          googAutoGainControl: false,
+          googNoiseSuppression: false,
+          googHighpassFilter: false
+      },
+      optional: [{
+        googAudioMirroring: false
+      }]
+  },
       video: false
   };
   this.connection.sdpConstraints.mandatory = {

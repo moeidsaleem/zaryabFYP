@@ -2,6 +2,8 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { WebrtcService } from '../webrtc.service';
 import { Router } from '@angular/router';
 import RecordRTC from 'recordrtc/RecordRTC.min';
+import { Http } from '@angular/http';
+
 
 @Component({
   selector: 'record-rtc',
@@ -16,7 +18,7 @@ export class RecordRTCComponent implements AfterViewInit{
 
   @ViewChild('video') video;
 
-  constructor(private router:Router,private rtc:WebrtcService,private elementRef:ElementRef) {
+  constructor(public http:Http,private router:Router,private rtc:WebrtcService,private elementRef:ElementRef) {
    
 
     this.rtc.connection.onstream = function(event){
@@ -39,11 +41,12 @@ export class RecordRTCComponent implements AfterViewInit{
 
 
   started:boolean = false;
-  
+  roomId:any;
+
+
   rand5 = function() {
     return(Math.floor(Math.random() * 5*2) + 2003 *32)
   };
-  roomId;
 
 
 
@@ -71,7 +74,15 @@ setTimeout(()=>{
 },1000);
 }
 
-
+test(){
+  console.log('working test')
+  this.http.post('http://localhost:3000/test', {
+    name:'Moeid',
+    operator:'123'
+  }).subscribe(res=>{
+    console.log(res);
+  })
+}
 
 // RECORD_RTC
 
@@ -110,15 +121,31 @@ setTimeout(()=>{
     //handle error here
   }
 
+
+  accessAPI(dataURL){
+ 
+
+  }
+
   processVideo(audioVideoWebMURL) {
     let video: HTMLAudioElement = this.video.nativeElement;
     let recordRTC = this.recordRTC;
     video.src = audioVideoWebMURL;
     this.toggleControls();
+    let d;
     var recordedBlob = recordRTC.getBlob();
     recordRTC.getDataURL(function (dataURL) {
-      console.log(dataURL);
+      // console.log(dataURL); 
+      d= dataURL;
      });
+     setTimeout(()=>{
+       console.log(d);
+       console.log('got it working ')
+       let data ={ operator:'operator1',media: d}
+       this.http.post('http://localhost:3000/api', data).subscribe(res=>{
+         console.log(res);
+       })
+     },2400)
   }
 
   mediaConstraints;
@@ -146,7 +173,7 @@ setTimeout(()=>{
   }
 
   download() {
-    this.recordRTC.save('./assets/video.webm');
+    this.recordRTC.save('audio.webm');
    
   }
 }
