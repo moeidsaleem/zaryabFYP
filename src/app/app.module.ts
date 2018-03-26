@@ -34,12 +34,16 @@ import { ResultComponent } from './result/result.component';
 
 */
 
+import { RecordRTCComponent } from './record-rtc/record-rtc.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     AuthComponent,
     DashboardComponent,
+    RecordRTCComponent,
     LearnmoreComponent,
     PricingComponent,
     DemoComponent,
@@ -60,16 +64,15 @@ import { ResultComponent } from './result/result.component';
     ChartModule,
     LoadingModule,
     RouterModule.forRoot([
-      { 
-         path:'',
-         redirectTo:'demo',
-         pathMatch: 'full'
-      }, 
+      // { 
+      //    path:'',
+      //    redirectTo:'demo',
+      //    pathMatch: 'full'
+      // }, 
       { path: 'home',  component : LandingComponent},
       { path:'features', component:LearnmoreComponent},
-      { path:'demo', component:DemoComponent},
       { path:'result', component:ResultComponent},
-      { path:'demo', component:DemoComponent},
+      { path:'demo', component:RecordRTCComponent},
       { path:'about', component:AboutComponent},
       { path:'demo/:id', component:JoinComponent},
    ])
